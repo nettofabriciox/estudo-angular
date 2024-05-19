@@ -113,4 +113,8 @@ export class LocalCasasService {
   buscarTodasCasas(): ContratoCasas[]{
     return this.ListaCasas;
   }
+
+  buscarPorID(id: number): ContratoCasas | undefined {
+     return this.ListaCasas.find((casa) => casa.id === id);  
+  }
 }
