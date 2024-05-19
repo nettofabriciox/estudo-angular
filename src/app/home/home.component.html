@@ -5,5 +5,5 @@
     </form>
   </section>
   <section class="results">
-    <app-cards-casas [listaCasas]=" listaContratoCasas"></app-cards-casas>
+    <app-cards-casas *ngFor="let casas of listaContratoCasas" [listaCasas]="casas"></app-cards-casas>
   </section>
