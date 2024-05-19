@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ContratoCasas } from '../contrato-casas';
 
 @Component({
   selector: 'app-cards-casas',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './cards-casas.component.css'
 })
 export class CardsCasasComponent {
-
+ @Input() listaCasas!: ContratoCasas;
 }
