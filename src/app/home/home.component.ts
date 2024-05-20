@@ -14,9 +14,21 @@ import { LocalCasasService } from '../local-casas.service';
 export class HomeComponent {
 
   casaServico: LocalCasasService = inject(LocalCasasService);
-  listaContratoCasas: ContratoCasas []| undefined;
+  listaContratoCasas: ContratoCasas [];
+  filtroLocalCasas: ContratoCasas []| undefined;
 
   constructor(){
     this.listaContratoCasas = this.casaServico.buscarTodasCasas();
+    this.filtroLocalCasas = this.listaContratoCasas;
+  }
+
+  filterResults(text: string) {
+    if (!text) {
+      this.filtroLocalCasas = this.listaContratoCasas;
+      return;
+    }
+    this.filtroLocalCasas = this.listaContratoCasas?.filter((casas) =>
+      casas?.city.toLowerCase().includes(text.toLowerCase()),
+    );
   }
 }
