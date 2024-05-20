@@ -1,7 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { CardsCasasComponent } from '../cards-casas/cards-casas.component';
 import { ContratoCasas } from '../contrato-casas';
-import { CommonModule } from '@angular/common';
 import { LocalCasasService } from '../local-casas.service';
 
 @Component({
@@ -14,12 +14,15 @@ import { LocalCasasService } from '../local-casas.service';
 export class HomeComponent {
 
   casaServico: LocalCasasService = inject(LocalCasasService);
-  listaContratoCasas: ContratoCasas [];
+  listaContratoCasas: ContratoCasas []| undefined;
   filtroLocalCasas: ContratoCasas []| undefined;
 
   constructor(){
-    this.listaContratoCasas = this.casaServico.buscarTodasCasas();
-    this.filtroLocalCasas = this.listaContratoCasas;
+    this.casaServico.buscarTodasCasas().then((casas: ContratoCasas[]) =>{
+      this.listaContratoCasas = casas;
+      this.filtroLocalCasas = casas;
+    }
+  );
   }
 
   filterResults(text: string) {

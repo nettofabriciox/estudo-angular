@@ -1,10 +1,10 @@
 <article>
-    <img
-      class="listing-photo"
-      [src]="casasLocal?.photo"
-      alt="Exterior photo of {{ casasLocal?.name }}"
-      crossorigin
-    />
+  <img
+  class="listing-photo"
+  [src]="casasLocal?.photo"
+  alt="Exterior photo of {{ casasLocal?.name }}"
+  crossorigin
+/>
     <section class="listing-description">
       <h2 class="listing-heading">{{ casasLocal?.name }}</h2>
       <p class="listing-location">{{ casasLocal?.city }}, {{ casasLocal?.state }}</p>
@@ -21,7 +21,7 @@
       <h2 class="section-heading">Apply now to live here</h2>
       <form [formGroup]="applyForm" (submit)="submeterApp()">
         <label for="first-name">Primeiro Nome</label>
-        <input id="first-name" type="text" formControlName="PrimeiroNome" />
+        <input id="first-name" type="text" formControlName="primeiroNome" />
         <label for="last-name">Ultimo Nome</label>
         <input id="last-name" type="text" formControlName="ultimoNome" />
         <label for="email">Email</label>

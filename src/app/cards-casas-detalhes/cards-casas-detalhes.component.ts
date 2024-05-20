@@ -26,7 +26,9 @@ export class CardsCasasDetalhesComponent {
   
   constructor(){
     const numID = Number(this.rota.snapshot.params['id']);
-    this.casasLocal = this.casaServico.buscarPorID(numID);
+    this.casaServico.buscarPorID(numID).then((casaID) => {
+      this.casasLocal = casaID;
+    });
   }
 
   submeterApp(){
