@@ -117,4 +117,12 @@ export class LocalCasasService {
   buscarPorID(id: number): ContratoCasas | undefined {
      return this.ListaCasas.find((casa) => casa.id === id);  
   }
+
+  submeterApp(primeiroNome: string, ultimoNome: string, email: string){
+    console.log(
+      `Home app: ${primeiroNome}, ${ultimoNome}, ${email}`
+    );
+  }
+ 
+  
 }
